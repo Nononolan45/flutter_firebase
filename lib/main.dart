@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:firebase/pages/profil.dart';
+import 'package:firebase/pages/inscription.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -129,74 +132,5 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-class Inscription extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Inscription"),
-        backgroundColor: Colors.black,
-      ),
-      body: body(),
-    );
-  }
-  Widget body() {
-    return Container(
-      padding: EdgeInsets.all(30),
-      child: Column(
-        children: [
-          Center(
-            child: TextField(
-              decoration: InputDecoration(labelText: 'Pseudo'),
-            ),
-          ),
-          Center(
-            child: TextField(
-              decoration: InputDecoration(labelText: 'Mot de passe'),
-            ),
-          ),
-          Center(
-            child: TextField(
-              decoration: InputDecoration(labelText: 'Mail'),
-            ),
-          ),
-          Center(
-              child: Container(
-                child: ElevatedButton(
-                      onPressed: () {
-                      },
-                      child: Text('S\'inscrire'),
-                    ),
-                ),
-              ),
-        ],
-      ),
-    );
-  }
-}
 
 
-class Profil extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Profil"),
-        backgroundColor: Colors.black,
-      ),
-      body: body(),
-    );
-  }
-  Widget body() {
-    return Container(
-      padding: EdgeInsets.all(30),
-      child: Column(
-        children: [
-          Center(
-            child: Text('Mon profil')
-          ),
-        ],
-      ),
-    );
-  }
-}
