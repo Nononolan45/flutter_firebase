@@ -1,5 +1,17 @@
+import 'package:firebase/functions/Firestore.dart';
 import 'package:flutter/material.dart';
-class Inscription extends StatelessWidget {
+
+
+class InscriptionPage extends StatefulWidget {
+  @override
+  _InscriptionPageState createState() => _InscriptionPageState();
+}
+
+class _InscriptionPageState extends State<InscriptionPage> {
+
+  var pseudo = "";
+  var email = "";
+  var password = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,22 +30,39 @@ class Inscription extends StatelessWidget {
           Center(
             child: TextField(
               decoration: InputDecoration(labelText: 'Pseudo'),
+              onChanged: (event) {
+                setState((){
+                  password = event;
+                });
+              },
             ),
           ),
           Center(
             child: TextField(
               decoration: InputDecoration(labelText: 'Mot de passe'),
+              onChanged: (event) {
+                setState((){
+                  password = event;
+                });
+              },
             ),
           ),
           Center(
             child: TextField(
               decoration: InputDecoration(labelText: 'Mail'),
+              onChanged: (event) {
+                setState((){
+                  email = event;
+                });
+              },
             ),
           ),
           Center(
             child: Container(
               child: ElevatedButton(
                 onPressed: () {
+                  print(email);
+                  Firestore().enregistrement(email, pseudo, password);
                 },
                 child: Text('S\'inscrire'),
               ),
