@@ -1,6 +1,6 @@
+import 'package:firebase/pages/AppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
 class chatPage extends StatefulWidget {
   const chatPage({Key? key}) : super(key: key);
@@ -13,31 +13,11 @@ class _chatPageState extends State<chatPage> {
   @override
   List<String> listMesage = [];
   String message = "";
-  bool isSwitchOn = false;
-  var colorAppBar = Colors.black;
+
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Chat"),
-        backgroundColor: colorAppBar,
-        actions: [
-          FlutterSwitch(
-            value: isSwitchOn,
-            onToggle: (value) {
-              setState(() {
-                isSwitchOn = value;
-                if(!isSwitchOn){
-                  colorAppBar = Colors.black;
-                }
-                else {
-                  colorAppBar = Colors.red;
-                }
-              });
-            },
-          ),
-        ],
-      ),
+      appBar: AppBarBase(),
       body: body(context),
     );
   }

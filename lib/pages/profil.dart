@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase/globals.dart' as globals;
+import 'package:firebase/pages/AppBar.dart';
+
 
 class Profil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Profil"),
-        backgroundColor: Colors.black,
-      ),
+      appBar: AppBarBase(),
       body: body(),
     );
   }

@@ -5,6 +5,8 @@ import 'package:firebase/pages/inscription.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase/functions/Firestore.dart';
 import 'globals.dart' as globals;
+import 'package:firebase/pages/AppBar.dart';
+
 
 
 
@@ -47,12 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-        backgroundColor: Colors.black,
-      ),
+      appBar: AppBarBase(),
       body: body(),
       drawer: Drawer(
         child: ListView(
