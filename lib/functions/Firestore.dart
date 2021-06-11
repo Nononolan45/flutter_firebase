@@ -18,13 +18,15 @@ class Firestore{
 
     final  resultat = await authStore.createUserWithEmailAndPassword(email: email, password: pwd);
     final user = resultat.user;
-    String id = user.uid;
-    Map <String, dynamic> map = {
-      "nom": pseudo,
-      "email": email
-    };
-    addProfil(id, map);
-  }
+      String id = user!.uid;
+      Map <String, dynamic> map = {
+        "pseudo": pseudo,
+        "email": email
+      };
+      addProfil(id, map);
+    }
+
+
 
   void addProfil (String nom, Map <String, dynamic > map) {
       FirebaseFirestore.instance.collection('Profil').doc(nom).set(map);

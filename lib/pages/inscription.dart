@@ -32,7 +32,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
               decoration: InputDecoration(labelText: 'Pseudo'),
               onChanged: (event) {
                 setState((){
-                  password = event;
+                  pseudo = event;
                 });
               },
             ),
@@ -61,7 +61,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
             child: Container(
               child: ElevatedButton(
                 onPressed: () {
-                  print(email);
+                  print(pseudo);
                   Firestore().enregistrement(email, pseudo, password);
                 },
                 child: Text('S\'inscrire'),
