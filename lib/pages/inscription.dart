@@ -61,7 +61,6 @@ class _InscriptionPageState extends State<InscriptionPage> {
             child: Container(
               child: ElevatedButton(
                 onPressed: () {
-                  print(pseudo);
                   Firestore().enregistrement(email, pseudo, password);
                 },
                 child: Text('S\'inscrire'),
@@ -73,3 +72,4 @@ class _InscriptionPageState extends State<InscriptionPage> {
     );
   }
 }
+

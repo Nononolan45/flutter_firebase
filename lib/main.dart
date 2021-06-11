@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase/pages/profil.dart';
 import 'package:firebase/pages/inscription.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase/functions/Firestore.dart';
+import 'globals.dart' as globals;
+
 
 
 
@@ -30,6 +33,7 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 
@@ -37,7 +41,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-
+  var email = "";
+  var password = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,12 +87,22 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Center(
             child: TextField(
-              decoration: InputDecoration(labelText: 'Pseudo'),
+              decoration: InputDecoration(labelText: 'Email'),
+              onChanged: (event){
+                setState(() {
+                    email = event;
+                });
+              },
             ),
           ),
           Center(
             child: TextField(
               decoration: InputDecoration(labelText: 'Mot de passe'),
+              onChanged: (event){
+                setState(() {
+                  password = event;
+                });
+              },
             ),
           ),
           Center(
@@ -105,8 +120,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text('S\'inscrire'),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-
+                  onPressed: () async {
+                    var user = await Firestore().connexion(email, password);
+                   globals.user = user;
                   },
                   child: Text('Connexion'),
                 ),

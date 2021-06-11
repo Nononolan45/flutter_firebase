@@ -27,6 +27,15 @@ class Firestore{
     }
 
 
+    Future  connexion (String email, String password) async {
+      final resultat = await authStore.signInWithEmailAndPassword(email: email, password: password);
+      final  user = resultat.user;
+
+
+    return user;
+    }
+
+
 
   void addProfil (String nom, Map <String, dynamic > map) {
       FirebaseFirestore.instance.collection('Profil').doc(nom).set(map);
