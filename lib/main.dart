@@ -132,6 +132,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () async {
                     var user = await Firestore().connexion(email, password);
                    globals.user = user;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profil()),
+                    );
                   },
                   child: Text('Connexion'),
                 ),
