@@ -1,3 +1,4 @@
+import 'package:firebase/pages/chatPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/pages/profil.dart';
 import 'package:firebase/pages/inscription.dart';
@@ -72,6 +73,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => Profil()),
                 );
               },
+
+            ),
+            ListTile(
+              title: Text('Chat'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => chatPage()),
+                );
+              },
+
             ),
           ],
         ),
